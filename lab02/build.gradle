@@ -1,0 +1,17 @@
+plugins {
+  id 'java'
+    id 'application'
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation 'org.apache.commons:commons-csv:1.8'
+  implementation 'org.json:json:20171018'
+}
+
+application {
+  mainClassName = 'csci2020u.lab02.SimpleTest'
+}

@@ -1,0 +1,36 @@
+buildscript {
+  repositories {
+    flatDir dirs: '/mnt/d/csci2020u/proguard6.2.2/lib'
+    jcenter()
+  }
+  dependencies{
+    classpath ':proguard'
+  }
+}
+
+plugins {
+  id 'java'
+    id 'application'
+  id 'nebula.lint' version '16.17.0'
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation 'org.apache.commons:commons-csv:1.8'
+}
+
+application {
+  mainClassName = 'csci2020u.lab03.CSVDemo'
+}
+
+task (minify, dependsOn: 'jar', type: proguard.gradle.ProGuardTask) {
+  configuration 'proguard.cfg'
+
+  injars 'build/libs/lab03.jar'
+  outjars 'build/libs/lab03.min.jar'
+}
+
+gradleLint.rules = ['all-dependency']
