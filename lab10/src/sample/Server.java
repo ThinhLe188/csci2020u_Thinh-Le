@@ -40,7 +40,6 @@ public class Server extends Application {
         primaryStage.setScene(new Scene(grid, 400, 375));
         primaryStage.show();
 
-
         new Thread(() -> {
             try {
                 serverSocket = new ServerSocket(SERVER_PORT);
